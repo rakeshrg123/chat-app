@@ -502,6 +502,97 @@ ul {
   margin-right: 5px;
 }
 
+.chat-header h2 {
+  color: #3367d6;
+  font-size: 18px;
+  padding: 10px;
+}
+/* Sidebar Styling */
+.chat-sidebar {
+  background-color: #f5f7fb;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 100%;
+  max-width: 250px; /* Ensure it has a proper width */
+}
+
+/* Current User Display */
+.current-user {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.current-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Conversations List */
+.conversation-list {
+  flex: 1;
+  overflow-y: auto; /* ✅ Enables scrolling when there are many conversations */
+  padding: 10px;
+}
+
+/* Conversation Items */
+.conversation-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.conversation-item:hover {
+  background-color: #eaeef5;
+}
+
+.conversation-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px; /* Ensures spacing between avatar and text */
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Conversation Details */
+.conversation-details {
+  flex-grow: 1;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.last-message {
+  font-size: 12px;
+  color: #777;
+}
+
+/* No Conversations Message */
+.no-conversations {
+  text-align: center;
+  color: #777;
+  padding: 15px;
+  font-size: 14px;
+}
+
 /* Footer */
 .app-footer {
   background-color: #ffffff;

@@ -1,5 +1,14 @@
-<%- include('partials/header') %>
-<link rel="stylesheet" href="/stylesheets/styles1.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/styles1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+</head>
+<body>
     <div class="chat-container">
         <!-- Sidebar with conversations -->
         <input type="hidden" id="userData" value='<%- JSON.stringify(user).replace(/\'/g, "\\\'").replace(/</g, "\\u003c").replace(/>/g, "\\u003e") %>'>
@@ -18,4 +27,5 @@
     </div>
 
     <script src="/javascripts/script.js"></script>
-<%- include('partials/footer') %>
+</body>
+</html>

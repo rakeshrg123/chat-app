@@ -1,6 +1,6 @@
 <div class="chat-sidebar">
     <div class="current-user">
-        <img src="<%= user.avatar || '/images/default-avatar.png' %>" alt="<%= user.username %>">
+        <img src="/images/default-avatar.png" alt="<%= user.username %>">
         <span><%= user.username %></span>
     </div>
     
@@ -26,7 +26,7 @@
                 
                 <div class="conversation-item" data-conversation-id="<%= conversation.id %>" data-recipient-id="<%= recipientId %>">
                     <% if (participant) { %>
-                        <img src="<%= participant.avatar || '/images/default-avatar.png' %>" alt="<%= participant.username %>">
+                        <img src="/images/default-avatar.png" alt="<%= participant.username %>">
                         <div class="conversation-details">
                             <div class="username"><%= participant.username %></div>
                             <div class="last-message"><%= conversation.lastMessageText || 'Start a conversation' %></div>
