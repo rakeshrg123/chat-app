@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/stylesheets/styles1.css">
+    <div class="chat-container">
+        <!-- Sidebar with conversations -->
+        <input type="hidden" id="userData" value='<%- JSON.stringify(user).replace(/\'/g, "\\\'").replace(/</g, "\\u003c").replace(/>/g, "\\u003e") %>'>
+        <%- include('partials/chat-sidebar') %>
+        <!-- Main chat area -->
+        <div class="chat-main">
+            <div class="chat-header">
+                <div id="current-chat-user">Select a conversation</div>
+            </div>
+            
+  
+            <%- include('partials/chat-messages') %>
+
+            <%- include('partials/chat-input') %>
+        </div>
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+<%- include('partials/footer') %>

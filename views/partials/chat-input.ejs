@@ -1,0 +1,14 @@
+<div class="message-input-container">
+    <form id="message-form">
+        <input type="hidden" id="recipient-id" name="recipientId">
+        <input type="hidden" id="conversation-id" name="conversationId">
+        
+        <div class="message-input-wrapper">
+            <input type="text" id="message-input" onkeydown="" name="message" placeholder="Type a message..." disabled>
+            <button type="button" id="attach-image" class="attach-btn"><i class="fas fa-image"></i></button>
+            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+        </div>
+        
+        <button type="submit" id="send-message" disabled><i class="fas fa-paper-plane"></i></button>
+    </form>
+</div>
