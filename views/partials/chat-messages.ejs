@@ -1,28 +1,30 @@
 <div class="message-container" id="message-container">
-    <% if (locals.noMessages) { %>
-        <div class="no-messages">
-            <p><%= message %></p>
+  <% if (locals.noMessages) { %>
+  <div class="no-messages">
+    <p><%= message %></p>
+  </div>
+  <% } else if (locals.messages && messages.length > 0) { %>
+  <ul class="message-list">
+    <% messages.forEach(message => { %>
+    <li class="message <%= message.type === 'sent' ? 'sent' : 'received' %>">
+      <div class="message-content">
+        <% if (message.img) { %>
+        <div class="message-image">
+          <img src="<%= message.img %>" alt="Shared image" />
         </div>
-    <% } else if (locals.messages) { %>
-        <ul class="message-list">
-            <% messages.forEach(message => { %>
-                <li class="message <%= message.senderId === user.id ? 'sent' : 'received' %>">
-                    <div class="message-content">
-                        <% if (message.img) { %>
-                            <div class="message-image">
-                                <img src="<%= message.img %>" alt="Shared image">
-                            </div>
-                        <% } %>
-                        <div class="message-text"><%= message.text %></div>
-                        <div class="message-time"><%= new Date(message.createdAt).toLocaleTimeString() %></div>
-                    </div>
-                    <div id="typing-message"></div>
-                </li>
-            <% }); %>
-        </ul>
-    <% } else { %>
-        <div class="select-conversation">
-            <p>Select a conversation to start chatting</p>
+        <% } %>
+        <div class="message-text"><%= message.text %></div>
+        <div class="message-time">
+          <%= new Date(message.createdAt).toLocaleTimeString([], { hour:
+          '2-digit', minute: '2-digit' }) %>
         </div>
-    <% } %>
+      </div>
+    </li>
+    <% }); %>
+  </ul>
+  <% } else { %>
+  <div class="select-conversation">
+    <p>Select a conversation to start chatting</p>
+  </div>
+  <% } %>
 </div>

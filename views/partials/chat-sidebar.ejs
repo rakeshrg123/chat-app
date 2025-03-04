@@ -1,47 +1,30 @@
 <div class="chat-sidebar">
-    <div class="current-user">
-        <img src="/images/default-avatar.png" alt="<%= user.username %>">
-        <span><%= user.username %></span>
+  <div class="current-user">
+    <img src="/images/default-avatar.png" alt="<%= user.username %>" />
+    <span><%= user.username %></span>
+  </div>
+
+  <div class="conversation-list">
+    <h3>Conversations</h3>
+    <% if (conversations && conversations.length > 0) { %> <%
+    conversations.forEach(conversation => { %>
+    <div
+      class="conversation-item"
+      data-recipient-id="<%= conversation.userId %>"
+    >
+      <img
+        src="/images/default-avatar.png"
+        alt="<%= conversation.username %>"
+      />
+      <div class="conversation-details">
+        <div class="username"><%= conversation.username %></div>
+        <div class="last-message">
+          <%= conversation.lastMessage || 'Start a conversation' %>
+        </div>
+      </div>
     </div>
-    
-    <div class="conversation-list">
-        <h3>Conversations</h3>
-        <% if (locals.conversations && conversations.length > 0) { %>
-            <% conversations.forEach(conversation => { %>
-                <% 
-            
-                let participant = null;
-                let recipientId = conversation.recipientId;
-                
-        
-                if (conversation.recipientId == user.id) {
-                    recipientId = conversation.senderId;
-                }
-                
-            
-                if (conversation.participants && conversation.participants.length > 0) {
-                    participant = conversation.participants.find(p => p.id != user.id) || conversation.participants[0];
-                }
-                %>
-                
-                <div class="conversation-item" data-conversation-id="<%= conversation.id %>" data-recipient-id="<%= recipientId %>">
-                    <% if (participant) { %>
-                        <img src="/images/default-avatar.png" alt="<%= participant.username %>">
-                        <div class="conversation-details">
-                            <div class="username"><%= participant.username %></div>
-                            <div class="last-message"><%= conversation.lastMessageText || 'Start a conversation' %></div>
-                        </div>
-                    <% } else { %>
-                        <img src="/images/default-avatar.png" alt="User">
-                        <div class="conversation-details">
-                            <div class="username">User <%= recipientId %></div>
-                            <div class="last-message"><%= conversation.lastMessageText || 'Start a conversation' %></div>
-                        </div>
-                    <% } %>
-                </div>
-            <% }); %>
-        <% } else { %>
-            <div class="no-conversations">No conversations yet.</div>
-        <% } %>
-    </div>
+    <% }); %> <% } else { %>
+    <div class="no-conversations">No conversations yet.</div>
+    <% } %>
+  </div>
 </div>
